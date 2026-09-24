@@ -45,3 +45,15 @@ A real-time rendering engine built from scratch in C++ and OpenGL, developed inc
 > Other configurations (Release, x64) are currently unsupported and will fail to build or run.
 - Visual Studio 2022 (or compatible)
 - Windows
+
+<p align="center">
+  <img width="200" height="200" alt="Procedural" src="https://github.com/user-attachments/assets/233764bb-b253-43c4-93e8-3b3854a28a76" />
+  <img width="200" height="200" alt="Bump" src="https://github.com/user-attachments/assets/65ded426-39cd-45d7-ae0f-23cd5e0029d1" />
+  <img width="200" height="200" alt="Anisotropic" src="https://github.com/user-attachments/assets/1ea52737-152b-484b-96d1-263624852559" />
+  <img width="200" height="200" alt="Motion Blur" src="https://github.com/user-attachments/assets/bd256c48-fe74-4dfa-9fb1-098cd82d5537" />
+  <img width="200" height="200" alt="Focal" src="https://github.com/user-attachments/assets/45f90ec3-daf0-47cc-b7e4-2e3cdf22ecb0" />
+  <img width="200" height="200" alt="Subsurface" src="https://github.com/user-attachments/assets/b3b71f8e-0d9c-45b6-a176-d2faf4afd32c" />
+  <img width="200" height="200" alt="Sheen" src="https://github.com/user-attachments/assets/d86adfb9-a48e-4946-b2ec-384c60b8f889" />
+  <img width="200" height="200" alt="Clearcoat" src="https://github.com/user-attachments/assets/91b7a186-2f6b-4b67-94e7-77925a08d245" />
+  <img width="810" height="430" alt="diff" src="https://github.com/user-attachments/assets/c75e8cd4-c1e2-4e92-9849-fb5ec5b5833b" />
+</p>
