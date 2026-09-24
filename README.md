@@ -17,7 +17,6 @@ A real-time rendering engine built from scratch in C++ and OpenGL, developed inc
 - Directional and spot lights, with physically based distance attenuation and a window function for spot cutoff
 - Distance fog, blending distant objects into the background
 - Bump mapping
-- Custom cloth/velvet material shading model
 - Anisotropic texture filtering
 - Runtime-tunable light properties via keyboard
 
@@ -26,13 +25,13 @@ A real-time rendering engine built from scratch in C++ and OpenGL, developed inc
   - Bloom
   - Depth of Field (driven by the depth buffer, tunable live)
   - Motion blur (tunable live)
-  - Sobel edge detection
-  - Chained Gaussian blur passes
+  - Sobel
+  - Gaussian blur
   - Custom convolution kernels uploadable via uniform variables
 
-## Procedural & Animation
+## Other features
 - Procedural pattern generation on mesh surfaces
-- Object motion driven by Bézier curves, cubic splines, and Catmull-Rom interpolation
+- Object motion driven by Catmull-Rom interpolation
 - Support for loading external mesh files into the scene
 
 ## Architecture
