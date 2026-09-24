@@ -29,20 +29,19 @@ A real-time rendering engine built from scratch in C++ and OpenGL, developed inc
   - Gaussian blur
   - Custom convolution kernels uploadable via uniform variables
 
-## Other features
-- Procedural pattern generation on mesh surfaces
-- Object motion driven by Catmull-Rom interpolation
-- Support for loading external mesh files into the scene
-
 ## Architecture
 - Modular manager-based design: dedicated managers for materials, meshes, shaders, and VAOs, decoupling resource loading from rendering logic
 - VAO and shader program caching: the VAOManager returns an existing VAO for a given mesh/shader combination when available, and objects sharing a program or VAO reuse the same GPU resource instead of duplicating it — minimizing redundant OpenGL state changes (glUseProgram, glBindVertexArray) during the render loop
 - Each renderable object can use an independent shader program when needed
 - Centralized input and game-loop management, decoupled from the entry point
 
-> ⚠️ **Build configuration:** This project only runs correctly in **Debug | x86**.
-> Other configurations (Release, x64) are currently unsupported and will fail to build or run.
+## Other features
+- Procedural pattern generation on mesh surfaces
+- Object motion driven by Catmull-Rom interpolation
+- Support for loading external mesh files into the scene
 
 ## Requirements
+> ⚠️ **Build configuration:** This project only runs correctly in **Debug | x86**.
+> Other configurations (Release, x64) are currently unsupported and will fail to build or run.
 - Visual Studio 2022 (or compatible)
 - Windows
