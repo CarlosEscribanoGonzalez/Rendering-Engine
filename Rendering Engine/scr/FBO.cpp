@@ -80,7 +80,7 @@ void FBO::resize(unsigned int w, unsigned int h) const {
 	glDrawBuffers(6, buffs);
 	if (GL_FRAMEBUFFER_COMPLETE != glCheckFramebufferStatus(GL_FRAMEBUFFER))
 	{
-		std::cerr << "Error configurando el FBO" << std::endl;
+		std::cerr << "Error while configuring FBO" << std::endl;
 		exit(-1);
 	}
 }

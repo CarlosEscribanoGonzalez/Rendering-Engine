@@ -6,7 +6,7 @@ void MaterialManager::loadTextures() {
 	//Checking anisotropic filter availability and max value
 	if (glewIsSupported("GL_EXT_texture_filter_anisotropic")) {
 		glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &anisotropicAmount);
-		std::cout << "Filtro anisotrópico disponible. Tamaño máximo: " << anisotropicAmount << std::endl;
+		std::cout << "Anisotropic filter available. Max size: " << anisotropicAmount << std::endl;
 	}
 	//Texture loading:
 	colorTexId = loadTex("../img/color2.png");
@@ -43,7 +43,7 @@ unsigned int MaterialManager::loadTex(const char* fileName) {
 	map = loadTexture(fileName, w, h);
 	if (!map)
 	{
-		std::cout << "Error cargando el fichero: "
+		std::cout << "Error loading file: "
 			<< fileName << std::endl;
 		exit(-1);
 	}

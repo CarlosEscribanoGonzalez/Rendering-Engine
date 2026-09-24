@@ -77,7 +77,7 @@ void keyboardFunc(unsigned char key, int x, int y) {
 	const char* movement = movementTypes[movementIdx];
 	if (key == ' ') {
 		if (++movementIdx == movementTypes.size()) movementIdx = 0;
-		std::cout << "Modo de movimiento: " << movementTypes[movementIdx] << std::endl;
+		std::cout << "Movement type: " << movementTypes[movementIdx] << std::endl;
 	}
 	else if (key == 'p' || key == 'P') pause = !pause;
 	else if (movement == "Camera") editCamera(key);

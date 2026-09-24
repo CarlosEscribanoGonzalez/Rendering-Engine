@@ -21,7 +21,7 @@ MeshInfo MeshManager::importModel(std::string name, int componentIndex) {
 	const struct aiScene* scene = aiImportFile(path.c_str(),
 		aiProcess_Triangulate | aiProcess_JoinIdenticalVertices | aiProcess_GenNormals);
 	if (!scene) {
-		fprintf(stderr, "Error al cargar modelo: %s\n", aiGetErrorString());
+		fprintf(stderr, "Error loading model: %s\n", aiGetErrorString());
 		return MeshInfo{};
 	}
 	MeshInfo m = {};
