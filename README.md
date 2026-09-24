@@ -46,6 +46,7 @@ A real-time rendering engine built from scratch in C++ and OpenGL, developed inc
 - Visual Studio 2022 (or compatible)
 - Windows
 
+## Images
 <p align="center">
   <img width="200" height="200" alt="Procedural" src="https://github.com/user-attachments/assets/233764bb-b253-43c4-93e8-3b3854a28a76" />
   <img width="200" height="200" alt="Bump" src="https://github.com/user-attachments/assets/65ded426-39cd-45d7-ae0f-23cd5e0029d1" />
