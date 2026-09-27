@@ -151,25 +151,25 @@ LightingProgram& ShaderManager::initLightingProgram(const char* vname, const cha
 		program = 0;
 		exit(-1);
 	}
-	LightingProgram info = {};
-	info.id = program;
-	info.vShader = vshader;
-	info.fShader = fshader;
-	info.uColorTex = glGetUniformLocation(program, "colorTex");
-	info.uDepthTex = glGetUniformLocation(program, "depthTex");
-	info.uPosTex = glGetUniformLocation(program, "posTex");
-	info.uNormalTex = glGetUniformLocation(program, "normalTex");
-	info.uSpecularTex = glGetUniformLocation(program, "specularTex");
-	info.uEmissiveTex = glGetUniformLocation(program, "emissiveTex");
-	info.uLitTex = glGetUniformLocation(program, "litTex");
-	info.uLights = glGetUniformLocation(program, "lights");
-	info.uNumLights = glGetUniformLocation(program, "numLights");
-	info.uIa = glGetUniformLocation(program, "Ia");
-	info.uViewMat = glGetUniformLocation(program, "view");
-	info.inPos = glGetAttribLocation(program, "inPos");
-	info.uNear = glGetUniformLocation(program, "near");
-	info.uFar = glGetUniformLocation(program, "far");
-	return info;
+	LightingProgram* info = new LightingProgram();
+	info->id = program;
+	info->vShader = vshader;
+	info->fShader = fshader;
+	info->uColorTex = glGetUniformLocation(program, "colorTex");
+	info->uDepthTex = glGetUniformLocation(program, "depthTex");
+	info->uPosTex = glGetUniformLocation(program, "posTex");
+	info->uNormalTex = glGetUniformLocation(program, "normalTex");
+	info->uSpecularTex = glGetUniformLocation(program, "specularTex");
+	info->uEmissiveTex = glGetUniformLocation(program, "emissiveTex");
+	info->uLitTex = glGetUniformLocation(program, "litTex");
+	info->uLights = glGetUniformLocation(program, "lights");
+	info->uNumLights = glGetUniformLocation(program, "numLights");
+	info->uIa = glGetUniformLocation(program, "Ia");
+	info->uViewMat = glGetUniformLocation(program, "view");
+	info->inPos = glGetAttribLocation(program, "inPos");
+	info->uNear = glGetUniformLocation(program, "near");
+	info->uFar = glGetUniformLocation(program, "far");
+	return *info;
 }
 
 PostProcessProgram& ShaderManager::initPostProcessProgram(const char* vname, const char* fname, Mask mask) {
