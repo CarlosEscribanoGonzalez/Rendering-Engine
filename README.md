@@ -41,8 +41,8 @@ A real-time rendering engine built from scratch in C++ and OpenGL, developed inc
 - Support for loading external mesh files into the scene
 
 ## Requirements
-> ⚠️ **Build configuration:** This project only runs correctly in **Debug | x86**.
-> Other configurations (Release, x64) are currently unsupported and will fail to build or run.
+> ⚠️ **Build configuration:** This project only runs correctly in **x86**.
+> x64 is currently unsupported and will fail to build or run.
 - Visual Studio 2022 (or compatible)
 - Windows
 
