@@ -1,6 +1,9 @@
 #include "Renderer.h"
 #include "Scene.h"
 #include "GlobalVariables.h"
+#include "ImGUI/imgui_impl_opengl3.h"
+#include "ImGUI/imgui_impl_glut.h"
+#include "imguiPanels.h"
 
 void Renderer::init(RendererType t, LightingProgram* program) {
 	type = t;
@@ -31,6 +34,12 @@ void Renderer::resize(unsigned int w, unsigned int h) {
 }
 
 void Renderer::render() {
+	ImGui_ImplOpenGL3_NewFrame();
+	ImGui_ImplGLUT_NewFrame();
+	ImGuiIO& io = ImGui::GetIO();
+	io.DisplaySize = ImVec2((float)glutGet(GLUT_WINDOW_WIDTH), (float)glutGet(GLUT_WINDOW_HEIGHT));
+	ImGui::NewFrame();
+	drawImGuiPanels();
 	if (type == Forward) renderForward();
 	else renderDeferred();
 }
@@ -54,6 +63,8 @@ void Renderer::renderForward() {
 	}
 	currentGProgram = nullptr;
 	currentVAO = nullptr;
+	ImGui::Render();
+	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	glutSwapBuffers();
 }
 
@@ -97,6 +108,8 @@ void Renderer::renderDeferred() {
 	}
 	performLightingPass(0, *finalPassProgram, *prevFBO);
 	if (enableBlending) glDisable(GL_BLEND);
+	ImGui::Render();
+	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	glutSwapBuffers();
 }
 
@@ -156,7 +169,7 @@ void Renderer::performForwardPass(ObjectInfo& obj) {
 		glUniform3fv(glGetUniformLocation(currentGProgram->id, (base + ".specular").c_str()), 1, &lights[i].specular[0]);
 		glUniform3fv(glGetUniformLocation(currentGProgram->id, (base + ".direction").c_str()), 1, &lights[i].direction[0]);
 		glUniform1f(glGetUniformLocation(currentGProgram->id, (base + ".alpha").c_str()), lights[i].alpha);
-		glUniform1f(glGetUniformLocation(currentGProgram->id, (base + ".intensity").c_str()), lights[i].intensity);
+		glUniform1f(glGetUniformLocation(currentGProgram->id, (base + ".intensity").c_str()), lights[i].intensity * lightIntensityMult);
 		glUniform1f(glGetUniformLocation(currentGProgram->id, (base + ".angle").c_str()), lights[i].angle);
 		glUniform1f(glGetUniformLocation(currentGProgram->id, (base + ".dmin").c_str()), lights[i].dmin);
 		glUniform1f(glGetUniformLocation(currentGProgram->id, (base + ".d0").c_str()), lights[i].d0);
@@ -270,7 +283,7 @@ void Renderer::performLightingPass(int fbo, const LightingProgram& program, cons
 		glUniform3fv(glGetUniformLocation(program.id, (base + ".specular").c_str()), 1, &lights[i].specular[0]);
 		glUniform3fv(glGetUniformLocation(program.id, (base + ".direction").c_str()), 1, &lights[i].direction[0]);
 		glUniform1f(glGetUniformLocation(program.id, (base + ".alpha").c_str()), lights[i].alpha);
-		glUniform1f(glGetUniformLocation(program.id, (base + ".intensity").c_str()), lights[i].intensity);
+		glUniform1f(glGetUniformLocation(program.id, (base + ".intensity").c_str()), lights[i].intensity * lightIntensityMult);
 		glUniform1f(glGetUniformLocation(program.id, (base + ".angle").c_str()), lights[i].angle);
 		glUniform1f(glGetUniformLocation(program.id, (base + ".dmin").c_str()), lights[i].dmin);
 		glUniform1f(glGetUniformLocation(program.id, (base + ".d0").c_str()), lights[i].d0);

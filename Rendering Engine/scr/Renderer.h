@@ -37,8 +37,10 @@ private:
 	void renderPlane();
 
 public:
+	RendererType getType() const { return type; }
 	void init(RendererType t, LightingProgram* program = nullptr);
 	void setType(RendererType t) { type = t; }
+	LightingProgram* getLightingProgram() const { return lightingProgram; }
 	void setLightingProgram(LightingProgram* program);
 	void resize(unsigned int w, unsigned int h);
 	void render();

@@ -68,9 +68,4 @@ public:
 	{
 	}
 #pragma endregion
-
-	void update(glm::vec3 movement, float intensityVariation) {
-		intensity = std::max(intensity + intensityVariation * lightIntensityVariationSpeed, 0.0f);
-		position += movement * lightMovementSpeed;
-	}
 };

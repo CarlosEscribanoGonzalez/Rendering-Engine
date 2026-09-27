@@ -12,6 +12,9 @@
 #include "InputManagement.h"
 #include "LoopManagement.h"
 #include "Renderer.h"
+#include "ImGUI/imgui.h"
+#include "ImGUI/imgui_impl_glut.h"
+#include "ImGUI/imgui_impl_opengl3.h"
 
 #include <GL/glew.h>
 #define SOLVE_FGLUT_WARNING
@@ -51,9 +54,10 @@ int main(int argc, char** argv)
 	meshManager.initMeshes();
 	materialManager.initMaterials(); 
 	sceneManager.initScenes();
-	sceneManager.changeScene(sceneManager.deferredScene_4); //Default scene
 	renderer.init(Deferred, &shaderManager.lightingPass_disney);
 	//renderer.init(Forward);
+	//Default scene
+	sceneManager.changeScene(renderer.getType() == Deferred ? sceneManager.deferredScene_4 : sceneManager.forwardScene); 
 	glutMainLoop();
 	destroy();
 	return 0;
@@ -83,6 +87,15 @@ void initContext(int argc, char** argv) {
 	glutKeyboardFunc(keyboardFunc);
 	glutMouseFunc(mouseFunc);
 	glutMotionFunc(mouseMotionFunc);
+	//ImGUI setup:
+	IMGUI_CHECKVERSION();
+	ImGui::CreateContext();
+	ImGuiIO& io = ImGui::GetIO();
+	io.IniFilename = nullptr;
+	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+	ImGui::StyleColorsDark();
+	ImGui_ImplGLUT_Init();
+	ImGui_ImplOpenGL3_Init("#version 330");
 }
 
 void initOGL() {

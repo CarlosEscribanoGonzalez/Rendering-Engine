@@ -42,6 +42,10 @@ void Scene::resizeCameras() {
 }
 
 void Scene::changeCamera(int idx) {
+	if (cameras.size() == 1) {
+		std::cout << "The selected scene only has 1 camera" << std::endl;
+		return;
+	}
 	if (idx == -1) {
 		if (++camIndex == cameras.size()) camIndex = 0;
 	}

@@ -26,15 +26,12 @@ extern bool pause;
 extern float objMovementSpeed;
 extern float camMovementSpeed;
 extern float camRotationSpeed;
-extern float lightMovementSpeed;
-extern float lightIntensityVariationSpeed;
+extern float lightIntensityMult;
 extern bool enablePostProcessing;
 //Motion blur:
 extern bool enableBlending;
 extern GLclampf motionBlurBrightness;
 extern GLclampf motionBlurAlpha;
-extern float motionBlurVariationSpeed;
 //Dof:
 extern float focalDistance;
 extern float maxDofDistance;
-extern float dofVariationSpeed;
