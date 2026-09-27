@@ -92,6 +92,7 @@ void drawImGuiPanels() {
 	ImGui::SetNextWindowSize(ImVec2(250, 0), ImGuiCond_Once);
 	ImGui::SetNextWindowPos(ImVec2(10, 30));
 	drawLightingPanel();
+	if (renderer.getType() == Forward) return;
 	ImGui::SetNextWindowCollapsed(true, ImGuiCond_Once);
 	ImGui::SetNextWindowSize(ImVec2(250, 0), ImGuiCond_Once);
 	ImGui::SetNextWindowPos(ImVec2(10, 50));
