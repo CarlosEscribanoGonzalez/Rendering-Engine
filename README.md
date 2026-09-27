@@ -2,14 +2,14 @@
 A real-time rendering engine built from scratch in C++ and OpenGL, developed incrementally across a series of university assignments and consolidated into a standalone engine as the final project.
 
 ## Rendering Pipeline
-- Deferred shading pipeline with a switchable forward-rendering path (toggleable at runtime)
+- Deferred shading pipeline with a switchable forward-rendering path
 - Configurable G-Buffer setup via a dedicated FBO abstraction (init/resize/destroy lifecycle)
-- Support for multiple lighting shaders, switchable live via keyboard
+- Support for multiple lighting shaders, switchable from the UI
 
 ## Scene Management
 - Hierarchical scene graphs: objects support parent-child relationships, with local transforms resolved recursively into world-space model matrices each frame
 - Multiple scenes definable and switchable at runtime
-- Multiple cameras per scene, including both first-person (keyboard) and orbital (mouse) camera controllers
+- Multiple cameras per scene, including both first-person (movement with WASD and rotation with numpad arrows) and orbital (left click) camera controllers
 - Aspect-ratio-preserving projection matrix that adapts to window resizing
 
 ## Lighting & Materials
@@ -18,7 +18,7 @@ A real-time rendering engine built from scratch in C++ and OpenGL, developed inc
 - Distance fog, blending distant objects into the background
 - Bump mapping
 - Anisotropic texture filtering
-- Runtime-tunable light properties via keyboard
+- Runtime-tunable light properties
 
 ## Post-Processing
 - Modular post-processing stack, chainable and configurable per scene:
