@@ -31,7 +31,7 @@ A real-time rendering engine built from scratch in C++ and OpenGL, developed inc
 
 ## Architecture
 - Modular manager-based design: dedicated managers for materials, meshes, shaders, and VAOs, decoupling resource loading from rendering logic
-- VAO and shader program caching: the VAOManager returns an existing VAO for a given mesh/shader combination when available, and objects sharing a program or VAO reuse the same GPU resource instead of duplicating it — minimizing redundant OpenGL state changes (glUseProgram, glBindVertexArray) during the render loop
+- VAO and shader program caching: the VAOManager returns an existing VAO for a given mesh/shader combination when available, and objects sharing a program or VAO reuse the same GPU resource instead of duplicating it, minimizing redundant OpenGL state changes (glUseProgram, glBindVertexArray) during the render loop
 - Each renderable object can use an independent shader program when needed
 - Centralized input and game-loop management, decoupled from the entry point
 
